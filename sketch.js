@@ -9,7 +9,7 @@ var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4;
 var backgroundImg
 var score=0;
-var jumpSound, collidedSound;
+var jumpSound, collidedSound,clapSound;
 
 var gameOver, restart;
 
@@ -17,6 +17,7 @@ var gameOver, restart;
 function preload(){
   jumpSound = loadSound("jump.wav")
   collidedSound = loadSound("collided.wav")
+  clapSound = loadSound("acheivment.wav")
   
   backgroundImg = loadImage("backgroundImg.png")
   sunAnimation = loadImage("sun.png");
@@ -103,6 +104,10 @@ function draw() {
   
     if (ground.x < 0){
       ground.x = ground.width/2;
+    }
+
+    if (score % 100 === 0 && score > 0) {
+      clapSound.play( )
     }
   
     trex.collide(invisibleGround);
